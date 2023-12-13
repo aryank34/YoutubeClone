@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+
+    #video-container{
+        max-width: 800px;
+    }
+
+    button{
+        margin-left: 100px;
+        font-size: 20px;
+    }
+    a{
+        text-decoration: none;
+    }
+</style>
+<body>
+    <div id="video-container">
+
+    </div>
+
+    <button><a href="index.html">Back</a></button>
+
+    <script>
+        const embedHtml = sessionStorage.getItem("videoEmbedHtml");
+
+        if(embedHtml){
+            const playerContainer = document.createElement("div");
+            playerContainer.innerHTML = embedHtml;
+
+            document.getElementById("video-container").appendChild(playerContainer);
+        }else{
+            alert("Video Embed Code not found");
+        }
+    </script>
+
+</body>
+</html>
